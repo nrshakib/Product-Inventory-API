@@ -2,12 +2,12 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 
-from categories.models import CategoryModel
+from categories.models import Category
 from categories.serializers import CategorySerializer
 from utils.api_response import api_response
 
 class CategoryViewSet(ModelViewSet):
-    queryset = CategoryModel.objects.all()
+    queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
     def get_object(self):

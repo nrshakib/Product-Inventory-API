@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from categories.models import CategoryModel
+from categories.models import Category
 
 class CategorySerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(required=False)
     
     class Meta:
-        model = CategoryModel
+        model = Category
         fields = '__all__'
 
     def validate_name(self, value):

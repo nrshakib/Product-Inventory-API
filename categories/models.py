@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 
-class CategoryModel(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
@@ -14,7 +14,7 @@ class CategoryModel(models.Model):
             slug = base_slug
             counter=2
 
-            while CategoryModel.objects.filter(slug=slug).exists():
+            while Category.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter +=1
 
